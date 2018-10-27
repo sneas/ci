@@ -6,15 +6,21 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: echo "Build success"
-      - run: echo "Build piu" >> build.txt
+      - run: npm install
+      - save_cache:
+          key: node_modules-{{ checksum "package-lock.json" }}-{{ arch }}
+          paths:
+            - node_modules
+      - run: npm run test
   deploy:
-    machine:
-      enabled: true
+    docker:
+      - image: 'circleci/node:latest'
     working_directory: ~/repo
     steps:
-      - run: echo "Deploy"
-      - run: cat build.txt
+      - checkout
+      - restore_cache:
+          key: node_modules-{{ checksum "package-lock.json" }}-{{ arch }}
+      - run: npm run deploy
 workflows:
   version: 2
   build-and-deploy:

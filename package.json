@@ -1,0 +1,23 @@
+{
+  "name": "ci",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo-cli Testing...",
+    "deploy": "echo-cli Deploying..."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sneas/ci.git"
+  },
+  "author": "Dima Snisarenko <snisarenkodima@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sneas/ci/issues"
+  },
+  "homepage": "https://github.com/sneas/ci#readme",
+  "devDependencies": {
+    "echo-cli": "1.0.8"
+  }
+}
