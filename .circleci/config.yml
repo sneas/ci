@@ -8,9 +8,9 @@ jobs:
       - checkout
       - run: npm install
       - save_cache:
-        key: node_modules-{{ checksum "package.json" }}-{{ arch }}
-        paths:
-          - node_modules
+          key: node_modules-{{ checksum "package.json" }}-{{ arch }}
+          paths:
+            - node_modules
       - run: npm run test
   deploy:
     docker:
@@ -22,7 +22,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        key: node_modules-{{ checksum "package.json" }}-{{ arch }}
+          key: node_modules-{{ checksum "package.json" }}-{{ arch }}
       - run: npm run deploy
 workflows:
   version: 2
@@ -30,6 +30,6 @@ workflows:
     jobs:
       - build
       - deploy:
-        requires:
-          - build
+          requires:
+            - build
 
