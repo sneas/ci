@@ -9,6 +9,8 @@ jobs:
       - run: echo "Build success"
       - run: echo "Build piu" >> build.txt
   deploy:
+    machine:
+      enabled: true
     working_directory: ~/repo
     steps:
       - run: echo "Deploy"
