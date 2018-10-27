@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo-cli Testing... && exit 1",
+    "test": "echo-cli Testing...",
     "deploy": "echo-cli Deploying..."
   },
   "repository": {
