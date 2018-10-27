@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run: npm install
       - save_cache:
-          key: node_modules-{{ checksum "package-lock.json" }}-{{ arch }}
+          key: node_modules-{{ checksum "package.json" }}-{{ arch }}
           paths:
             - node_modules
       - run: npm run test
@@ -19,7 +19,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: node_modules-{{ checksum "package-lock.json" }}-{{ arch }}
+          key: node_modules-{{ checksum "package.json" }}-{{ arch }}
       - run: npm run deploy
 workflows:
   version: 2
